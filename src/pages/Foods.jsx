@@ -37,6 +37,7 @@ export default function Foods() {
   }, [filter, dataAllFoods]);
 
   const clickByCategory = (value) => {
+    setIsFilterAll(false);
     handleSearchInfo('filterByCategory', value, 'foods');
     if (filter.includes(value)) {
       setFilter([...filter, value]);

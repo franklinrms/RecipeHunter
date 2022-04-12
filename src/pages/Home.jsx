@@ -39,7 +39,7 @@ const ContainerHome = styled.div`
   .logo {
     width: 70%;
     margin-top: 50px;
-    transform: scale(2);
+    transform: scale(1.3);
     opacity: 0;
     animation: logo 1s cubic-bezier(.25,.46,.45,.94) both;
   }
@@ -122,11 +122,11 @@ export default function Home() {
       <div className="main">
         <h2>About</h2>
         <p>
-          RecipeHunter is an application developed as a form of evaluation at the
-          front-end module of trybe course, to offer recipes for the
-          {'user\'s'}
-          in various forms, both for food and drinks, with the ability to apply
-          different filters.
+          Recipehunter is an application that offers the user several recipes of
+          different nationalities between food and drinks, the application was developed
+          as a form of evaluation in the front-end course of trybe, during the development
+          we were able to put into practice the main contents of React acquired in course.
+          To style the project we use Styled Components and for deploy Firebase.
         </p>
 
         <h2>Developer Team</h2>

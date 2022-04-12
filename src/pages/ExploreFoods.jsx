@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import UserContext from '../context/UserContext';
-import { ContainerExplore } from './style';
+import { Conteiner, ConteinerCards } from './style';
+import Cards from '../components/Cards';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Button from '../components/Button';
@@ -19,8 +20,13 @@ export default function ExploreFoods() {
   const magicNumber = 9;
   const path = location.pathname.slice(magicNumber);
 
+  const reditectTo = (id) => {
+    history.push(`/foods/${id}`);
+  };
+
   return (
-    <ContainerExplore>
+    <Conteiner>
+
       <Header title="Explore Foods" hasSearch={ false } />
       <Menu />
       <Button
@@ -40,16 +46,18 @@ export default function ExploreFoods() {
           handleSearchInfo('random', '', path);
         } }
       />
-      { newFilter.length > 0 && newFilter.map((filterFood, index) => (
-        <div data-testid={ `${index}-recipe-card` } key={ filterFood.strMeal }>
-          <img
-            data-testid={ `${index}-card-img` }
-            src={ filterFood.strMealThumb }
-            alt={ filterFood.strMeal }
+      <ConteinerCards>
+        { newFilter.length > 0 && newFilter.map((filterFood, index) => (
+          <Cards
+            key={ index }
+            name={ filterFood.strMeal }
+            thumb={ filterFood.strMealThumb }
+            clickCard={ () => reditectTo(filterFood.idMeal) }
+            index={ index }
           />
-          <h4 data-testid={ `${index}-card-name` }>{ filterFood.strMeal }</h4>
-        </div>
-      ))}
-    </ContainerExplore>
+
+        ))}
+      </ConteinerCards>
+    </Conteiner>
   );
 }

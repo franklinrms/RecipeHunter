@@ -129,7 +129,6 @@ export const Button = styled.button`
   }
 `;
 export const ContainerExplore = styled.div`
-  background-color: #0C0F14;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -215,7 +214,7 @@ export const ContainerLogin = styled.div`
   img {
     width: 70%;
     margin-bottom: 50px;
-    transform: scale(5);
+    transform: scale(1.3);
     opacity: 0;
     animation: logo 1s cubic-bezier(.25,.46,.45,.94) both;
   }

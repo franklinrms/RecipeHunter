@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import clipboardCopy from 'clipboard-copy';
 
 const Container = styled.div`
-  /* display: flex; */
+
   align-items: center;
   justify-items: center;
   p {
     font-size: 14px;
     margin: 0;
     color: #f2f2f2;
+    position: absolute;
+    pointer-events: none;
+    margin-top: 50px;
   }
 `;
 const Share = styled.button`

@@ -35,6 +35,7 @@ export default function Drinks() {
   const newArrCategory = [...new Set(dataCategory)];
 
   const clickByCategory = (value) => {
+    setIsFilterAll(false);
     handleSearchInfo('filterByCategory', value, 'drinks');
     if (filter.includes(value)) {
       setFilter([...filter, value]);

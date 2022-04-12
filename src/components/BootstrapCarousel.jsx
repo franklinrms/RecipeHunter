@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -11,6 +12,12 @@ const Container = styled.div`
 export default function BootstrapCarousel({ items, type }) {
   const items1 = [];
   const items2 = [];
+
+  const history = useHistory();
+
+  const reditectTo = (index) => {
+    history.push(`/${type === 'Meal' ? 'food' : 'drink'}s/${items2[index][`id${type}`]}`);
+  };
 
   items.forEach((item, index) => {
     if (index % 2 === 0) {
@@ -34,15 +41,13 @@ export default function BootstrapCarousel({ items, type }) {
               key={ item[`str${type}`] }
               name={ item[`str${type}`] }
               thumb={ item[`str${type}Thumb`] }
-            // clickCard={ clickCard }
-            // index={ i }
+              clickCard={ () => reditectTo(index) }
             />
             <Cards
               key={ items2[index][`str${type}`] }
               name={ items2[index][`str${type}`] }
               thumb={ items2[index][`str${type}Thumb`] }
-            // clickCard={ clickCard }
-            // index={ i }
+              clickCard={ () => reditectTo(index) }
             />
           </Container>
         </Carousel.Item>
